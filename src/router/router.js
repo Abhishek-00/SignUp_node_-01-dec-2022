@@ -3,7 +3,8 @@ const user = require("../models/model")
 const express = require("express")
 const app = express()
 const bcrypt = require("bcryptjs")
-const { create } = require("hbs")
+const hbs = require("hbs")
+const cookieParser = require("cookie-parser")
 
 
 
@@ -30,6 +31,7 @@ const router = new express.Router(user)         /*  Creating a new router */
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
+app.use(cookieParser())
 
 
 router.post("/registerUser", async (req, res) => {
@@ -54,7 +56,23 @@ router.post("/registerUser", async (req, res) => {
             // generate token
             const token = await newUser.generateAuthToken()
 
-            console.log(`token:  ${token}`);
+
+
+
+            /*
+                cookie
+
+                The res.cookie() function is used to set the cookie name to value.
+                The value parameter may be string or object converted to JSON.
+
+            */
+
+            res.cookie("jwt", token, {
+                expires: new Date(Date.now() + 300000),
+                httpOnly: true                /* no other client can delete cookie  */
+            })
+
+
 
             const createUser = await newUser.save()
             res.status(201).render("signUp")
@@ -85,12 +103,18 @@ router.post("/login", async (req, res) => {
 
         // generate token
         const token = await userEmail.generateAuthToken()
-        console.log(`token - ${token}`);
+        console.log(` Token during login - ${token}`);
 
-        if (isMatchPsd) {              /*also userEmail.password === password */
-           
+
+        if (isMatchPsd) {                  /*    also userEmail.password === password */
+
+            res.cookie("jwt", token, {
+                expires: new Date(Date.now() + 300000),
+                httpOnly: true,                /*    no other client can delete cookie   */
+                // secure:true                 /*    used in production version          */
+            })
+
             res.status(201).render("signUp")
-            console.log(userEmail.lastname);
         }
         else {
             res.send("Invalid login details")

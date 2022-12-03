@@ -4,11 +4,9 @@
 }
 
 body {
-    /* height: 100vh; */
-    background: linear-gradient(rgb(252, 225, 191), rgb(253, 242, 230)), url(/resources/bg.jpg);
+    background: linear-gradient(rgb(252, 225, 191), rgb(253, 242, 230));
+    height: auto;
     width: 100vw;
-    background-size: cover;
-    background-position: center;
 
 }
 
@@ -23,7 +21,7 @@ a {
     justify-content: space-between;
     align-items: center;
     /* background-color: rgb(255, 255, 255); */
-    width: 100vw;
+    width: 95vw;
     height: 100px;
 }
 
@@ -32,7 +30,7 @@ a {
 }
 
 .header li {
-    margin: auto 60px auto;
+    margin: auto auto auto 10px;
 }
 
 .header li {
@@ -45,6 +43,12 @@ a {
     padding: 13px 30px 13px 30px;
     border: 3px solid black;
     border-radius: 6px;
+}
+
+.right-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 .login-btn {
@@ -196,8 +200,8 @@ footer {
 
 
 /* login page */
-.fa-user{
-    background: radial-gradient( white,white);                     
+.fa-user {
+    background: radial-gradient(white, white);
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -205,13 +209,13 @@ footer {
     width: 150px;
     height: 150px;
     font-size: 80px;
-    box-shadow: 1px 1px  8px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 1px 1px 8px 4px rgba(0, 0, 0, 0.2);
 }
 
-.login-container{
+.login-container {
     height: 80vh;
     width: 30vw;
-    background: linear-gradient(rgba(255, 118, 118, 0.1),rgba(255, 255, 255, 0.5),rgba(255, 105, 105, 0.2)) ;
+    background: linear-gradient(rgba(255, 118, 118, 0.1), rgba(255, 255, 255, 0.5), rgba(255, 105, 105, 0.2));
     border-radius: 10px;
-    box-shadow: 2px 2px  9px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 9px 4px rgba(0, 0, 0, 0.2);
 }

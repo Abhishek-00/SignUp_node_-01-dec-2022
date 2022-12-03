@@ -1,7 +1,8 @@
+require("dotenv").config()
 const mongoose = require("mongoose")
 
 
-mongoose.connect("mongodb://localhost:27017/webpageUser", {
+mongoose.connect(process.env.SECRET_MONGO, {
     useNewUrlParser:true,
     useUnifiedTopology:true
 }).then(() => {
