@@ -9,11 +9,6 @@ const cookieParser = require("cookie-parser")
 
 
 
-
-
-// app.use(express.json())
-
-
 const hashPwd = async (password) => {
     console.log(password);
     const hashedPwd = await bcrypt.hash(password, 10)
@@ -114,7 +109,7 @@ router.post("/login", async (req, res) => {
                 // secure:true                 /*    used in production version          */
             })
 
-            res.status(201).render("signUp")
+            res.status(201).render("secret")
         }
         else {
             res.send("Invalid login details")

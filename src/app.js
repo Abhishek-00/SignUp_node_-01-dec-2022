@@ -7,7 +7,7 @@ const user = require("./models/model")
 const userRouter = require("./router/router")
 const auth = require("./middleware/auth")
 const cookieParser = require("cookie-parser")
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 8000
 
 
 
