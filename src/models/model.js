@@ -1,7 +1,6 @@
 const mongoose = require("mongoose")
 const bcrypt = require("bcryptjs")
-const jwt = require("jsonwebtoken")   
-const { response } = require("express")
+const jwt = require("jsonwebtoken")
 
 
 
